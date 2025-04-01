@@ -31,8 +31,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
       make \
  && cd /tmp \
  && mkdir openssl \
- && curl -SL "https://www.php.net/distributions/php-5.4.33.tar.gz" -o php.tar.gz \
- && echo "74e542dd2f15ebbc123738a71e867d57d2996a6edb40e6ac62fcf5ab85763d19 php.tar.gz" | sha256sum --check \
+ && curl -sL "https://www.openssl.org/source/old/1.0.2/openssl-1.0.2u.tar.gz" -o openssl.tar.gz \
+ && curl -sL "https://www.openssl.org/source/old/1.0.2/openssl-1.0.2u.tar.gz.sha256" -o openssl.tar.gz.sha256 \
  && echo "$(cat openssl.tar.gz.sha256) openssl.tar.gz" | sha256sum --check \
  && tar -xzf openssl.tar.gz -C openssl --strip-components=1 \
  && /bin/rm openssl.tar.gz \
@@ -49,7 +49,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
       make
 
 # compile php
-ENV PHP_INI_DIR /etc/php5/php-fpm
+ENV PHP_INI_DIR=/etc/php5/php-fpm
 RUN mkdir -p $PHP_INI_DIR/conf.d
 COPY ./php/php-fpm.conf $PHP_INI_DIR/php-fpm.conf
 
@@ -75,8 +75,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
       libzip-dev \
   && cd /tmp \
   && mkdir -p /tmp/php \
-  && curl -SL "https://www.php.net/distributions/php-5.3.29.tar.gz" -o php.tar.gz \
-  && echo "57cf097de3d6c3152dda342f62b1b2e9c988f4cfe300ccfe3c11f3c207a0e317 php.tar.gz" | sha256sum --check \
+  && curl -SL "https://www.php.net/distributions/php-5.4.33.tar.gz" -o php.tar.gz \
+  && echo "74e542dd2f15ebbc123738a71e867d57d2996a6edb40e6ac62fcf5ab85763d19 php.tar.gz" | sha256sum --check \
   && tar -xzf php.tar.gz -C /tmp/php --strip-components=1 \
   && rm php.tar.gz* \
   && cd /tmp/php \
