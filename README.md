@@ -1,6 +1,6 @@
-# docker-php5.3-apple-silicon
+# docker-php5.4-apple-silicon
 
-The last version of php 5.3 is from August 14, 2014.
+The docker container uses version [PHP 5.4.33](https://www.php.net/releases/#5.4.33) from September 18, 2014.
 
 This release works with Docker on Apple-Silicon and and perhaps only on this platform
 
