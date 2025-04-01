@@ -31,8 +31,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
       make \
  && cd /tmp \
  && mkdir openssl \
- && curl -sL "https://www.openssl.org/source/old/1.0.2/openssl-1.0.2u.tar.gz" -o openssl.tar.gz \
- && curl -sL "https://www.openssl.org/source/old/1.0.2/openssl-1.0.2u.tar.gz.sha256" -o openssl.tar.gz.sha256 \
+ && curl -SL "https://www.php.net/distributions/php-5.4.33.tar.gz" -o php.tar.gz \
+ && echo "74e542dd2f15ebbc123738a71e867d57d2996a6edb40e6ac62fcf5ab85763d19 php.tar.gz" | sha256sum --check \
  && echo "$(cat openssl.tar.gz.sha256) openssl.tar.gz" | sha256sum --check \
  && tar -xzf openssl.tar.gz -C openssl --strip-components=1 \
  && /bin/rm openssl.tar.gz \
