@@ -1,9 +1,9 @@
 #
-# Dockerfile to run php 5.3 as fpm
+# Dockerfile to run php 5.4 as fpm
 #
-# https://github.com/heisenbergdo/docker-php5.3-apple-silicon
+# Forked from https://github.com/heisenbergdo/docker-php5.3-apple-silicon
 #
-# The last version of php 5.3 is from August 14, 2014.
+# Uses version of php 5.4.33
 # Do not use it unless you know what you are doing#
 #
 # This release works with Docker on Apple-Silicon and
@@ -48,7 +48,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
       gcc \
       make
 
-# compile php 5.3.29
+# compile php
 ENV PHP_INI_DIR /etc/php5/php-fpm
 RUN mkdir -p $PHP_INI_DIR/conf.d
 COPY ./php/php-fpm.conf $PHP_INI_DIR/php-fpm.conf
